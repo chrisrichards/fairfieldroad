@@ -1,0 +1,21 @@
+.jumbotron
+  .container
+    %h1 Street Party 2014!
+    %p The legendary Fairfield Road street party is back!
+    %p
+      Keep your diaries free on
+      = succeed '.' do
+        %strong Saturday, 13th September 2014
+    %p More details to follow.
+    %p Enter your house number, road and email address below if you'd like to keep updated via the email newsletter.
+    %form.form-inline{:role => "form"}
+      .form-group
+        %input.form-control{:placeholder => "House Number", :type => "text"}/
+      .form-group
+        %select.form-control
+          %option Fairfield Road
+          %option Cranworth Road
+          %option Conifer Close
+      .form-group
+        %input.form-control{:placeholder => "Email Address", :type => "text"}/
+      %button.btn.btn-success{:type => "submit"} Subscribe
