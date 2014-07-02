@@ -7,8 +7,12 @@ class HomeController < ApplicationController
     @resident = Resident.new(resident_params)
 
     if @resident.save
-      @resident.subscribe ENV['MAILCHIMP_LIST_ID']
-      redirect_to thank_you_path
+      begin
+        @resident.subscribe ENV['MAILCHIMP_LIST_ID']
+        redirect_to thank_you_path
+      rescue Gibbon::MailChimpError => e
+        redirect_to root_path, :flash => { error: e.message }
+      end
     else
       render :new
     end
