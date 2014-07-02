@@ -8,8 +8,8 @@
         %strong Saturday, 13th September 2014
     %p More details to follow.
     %p Enter your house number, road and email address below if you'd like to keep updated via the email newsletter.
-    = simple_form_for @resident, class: 'form-inline', wrapper: :inline_form, html: { class: 'form-inline' } do |f|
-      = f.input :house_number, :placeholder => "House Number"
+    = simple_form_for @resident, url: subscribe_path, class: 'form-inline', wrapper: :inline_form, html: { class: 'form-inline' } do |f|
+      = f.input :house_number, :placeholder => "House Nr"
       = f.input :road, collection: ROADS, selected: ROADS[0]
       = f.input :email_address, :placeholder => "Email Address"
       = f.button :submit, "Subscribe", class: 'btn btn-success'

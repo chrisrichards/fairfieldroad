@@ -6,7 +6,10 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Fairfield Road, Winchester
+      - if user_signed_in?
+        = link_to 'Fairfield Road, Winchester', residents_path, class: 'navbar-brand'
+      - else
+        = link_to 'Fairfield Road, Winchester', root_path, class: 'navbar-brand'
     .navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

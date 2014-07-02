@@ -29,7 +29,7 @@ class ResidentsController < ApplicationController
 
     respond_to do |format|
       if @resident.save
-        format.html { redirect_to @resident, notice: 'Resident was successfully created.' }
+        format.html { redirect_to residents_path notice: 'Resident was successfully created.' }
         format.json { render :show, status: :created, location: @resident }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ResidentsController < ApplicationController
   def update
     respond_to do |format|
       if @resident.update(resident_params)
-        format.html { redirect_to @resident, notice: 'Resident was successfully updated.' }
+        format.html { redirect_to residents_path, notice: 'Resident was successfully updated.' }
         format.json { render :show, status: :ok, location: @resident }
       else
         format.html { render :edit }
