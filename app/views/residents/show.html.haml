@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b House number:
+  = @resident.house_number
+%p
+  %b Road:
+  = @resident.road
+%p
+  %b Email address:
+  = @resident.email_address
+
+= link_to 'Edit', edit_resident_path(@resident)
+\|
+= link_to 'Back', residents_path

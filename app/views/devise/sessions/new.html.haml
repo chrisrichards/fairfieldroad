@@ -1,0 +1,11 @@
+.signin
+  .panel.panel-primary
+    .panel-heading Sign In
+    .panel-body
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_checkboxes, file: :vertical_file_input, boolean: :vertical_boolean }) do |f|
+        = f.input :email, placeholder: 'Enter email', required: true, autofocus: true
+        = f.input :password, placeholder: 'Password', required: true
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        = f.button :submit, "Sign in"
+      .links
+        = render "devise/shared/links"
