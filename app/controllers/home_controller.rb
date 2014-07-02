@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @resident = Resident.new(resident_params)
 
     if @resident.save
+      @resident.subscribe ENV['MAILCHIMP_LIST_ID']
       redirect_to thank_you_path
     else
       render :new
@@ -17,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   private
+
     def resident_params
       params.require(:resident).permit(:house_number, :road, :email_address)
     end

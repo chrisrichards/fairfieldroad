@@ -13,4 +13,8 @@
 ROADS = [ "Fairfield Road", "Cranworth Road", "Conifer Close" ]
 
 class Resident < ActiveRecord::Base
+  def subscribe(list_id)
+    gb = Gibbon::API.new
+    gb.lists.subscribe({id: list_id, email: {email: self.email_address}, :double_optin => true})
+  end
 end
