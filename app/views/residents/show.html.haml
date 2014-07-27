@@ -1,15 +1,21 @@
 %p#notice= notice
+.page-header
+  %h1 Resident
 
-%p
-  %b House number:
-  = @resident.house_number
-%p
-  %b Road:
-  = @resident.road
-%p
-  %b Email address:
-  = @resident.email_address
-
-= link_to 'Edit', edit_resident_path(@resident)
-\|
-= link_to 'Back', residents_path
+%form.form-horizontal
+  .form-group
+    %label.col-sm-2.control-label House No
+    .col-sm-10
+      %p.form-control-static= @resident.house_number
+  .form-group
+    %label.col-sm-2.control-label Road
+    .col-sm-10
+      %p.form-control-static= @resident.road
+  .form-group
+    %label.col-sm-2.control-label Email Address
+    .col-sm-10
+      %p.form-control-static= @resident.email_address
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = link_to 'Edit', edit_resident_path(@resident), class: 'btn btn-primary'
+      = link_to 'Back', residents_path
