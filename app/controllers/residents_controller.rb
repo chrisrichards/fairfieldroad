@@ -5,7 +5,8 @@ class ResidentsController < ApplicationController
   # GET /residents
   # GET /residents.json
   def index
-    @residents = Resident.all
+    @residents = Resident.order(:house_number, :email_address)
+    @groups = @residents.group_by { |r| r.road }
   end
 
   # GET /residents/1

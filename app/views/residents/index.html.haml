@@ -3,22 +3,23 @@
   .actions
     = link_to 'New Resident', new_resident_path, class: 'btn btn-primary'
 
-%table.table.table-condensed.table-striped.table-hover
-  %thead
-    %tr
-      %th House number
-      %th Road
-      %th Email address
-      %th
-      %th
-      %th
-
-  %tbody
-    - @residents.each do |resident|
+- @groups.each do |road, residents|
+  %h2= road
+  %table.table.table-condensed.table-striped.table-hover
+    %thead
       %tr
-        %td= resident.house_number
-        %td= resident.road
-        %td= resident.email_address
-        %td= link_to 'Show', resident
-        %td= link_to 'Edit', edit_resident_path(resident)
-        %td= link_to 'Destroy', resident, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th House number
+        %th Road
+        %th Email address
+        %th
+        %th
+        %th
+
+    %tbody
+      - residents.each do |resident|
+        %tr
+          %td= resident.house_number
+          %td= resident.email_address
+          %td= link_to 'Show', resident
+          %td= link_to 'Edit', edit_resident_path(resident)
+          %td= link_to 'Destroy', resident, :method => :delete, :data => { :confirm => 'Are you sure?' }
