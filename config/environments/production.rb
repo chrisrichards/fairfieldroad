@@ -20,7 +20,10 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.static_cache_control = "public, max-age=#{1.year.to_i}"
+
+  # Enable deflate / gzip compression of controller-generated responses
+  config.middleware.use Rack::Deflater
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -32,7 +35,7 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
-  # `config.assets.precompile` has moved to config/initializers/assets.rb
+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache

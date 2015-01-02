@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby "2.1.2"
-gem 'rails', '~> 4.1.2'
+ruby "2.2.0"
+gem 'rails', '~> 4.2.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'therubyracer',  platforms: :ruby
-gem 'passenger'
+gem 'unicorn'
 gem 'pg'
 gem 'rails_12factor'
 
@@ -21,7 +21,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 gem 'devise_invitable'
-gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+gem 'simple_form'
 
 gem 'gibbon'
 
