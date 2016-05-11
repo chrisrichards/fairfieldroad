@@ -5,7 +5,6 @@ class HomeController < ApplicationController
 
   def subscribe
     @resident = Resident.new(resident_params)
-
     if @resident.save
       begin
         @resident.subscribe ENV['MAILCHIMP_LIST_ID']
@@ -14,7 +13,7 @@ class HomeController < ApplicationController
         redirect_to root_path, :flash => { error: e.message }
       end
     else
-      render :new
+      render "home/index"
     end
   end
 
